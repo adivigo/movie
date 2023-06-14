@@ -16,7 +16,7 @@ const genToken = async (username) => {
                 role: role
             }
 
-            const token = jwt.sign(payload, process.env.SECRET_KEYS, {expiresIn: '10m'})
+            const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '10m'})
             return token
         } else {
             throw new Error('User not found')

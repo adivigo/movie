@@ -12,7 +12,7 @@ const authCheck = (...roles) => {
         
         const token = authorization.replace('Bearer ', '')
         console.log(token)
-        jwt.verify(token, process.env.SECRET_KEYS, (err, decode) => {
+        jwt.verify(token, process.env.SECRET_KEY, (err, decode) => {
             if (err) {
                 return respone(res, 401, err)
             }
