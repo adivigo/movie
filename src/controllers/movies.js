@@ -37,7 +37,9 @@ ctrl.deleteData = async (req, res) => {
 
 ctrl.UpdateMovie = async (req, res) => {
     try { 
-        // fs.unlinkSync(`${data.image}`)
+        if (req.file !== undefined) {
+            req.body.image = req.file.path
+        }
         const id = req.params.id
         const data = await model.UpdateMov(id, req.body)
         return res.status(200).json(data)
